@@ -1,15 +1,15 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Table, Tag, Button, notification, Spin } from 'antd';
+import { Table, Button, notification, Spin } from 'antd';
 
 import { ArrowRightIcon, ArrowLeftIcon, LoadingIcon } from '../../assets/Icons/Icons';
 import { 
     clearLeaderboardError, 
     setCurrentPage, 
-    setPageSize, 
-    enableNextPage
+    enableNextPage,
+    fetchUserLogChunks
 } from '../../redux/features/leaderboardSlice';
-import { fetchUserLogChunks } from '../../redux/features/leaderboardSlice';
+import { clearAuthError } from '../../redux/features/authSlice';
 import { formatFirebaseTimestamp } from '../../utils/DateTimeFormatting';
 
 const UserLogsTable = () => {
@@ -21,8 +21,7 @@ const UserLogsTable = () => {
         hasNextPage,
         hasPrevPage,
         lastVisibleDoc,
-        currentPage,
-        ITEMS_PER_PAGE
+        currentPage
     } = useSelector((state) => state.leaderboard);
     const dispatch = useDispatch();
 

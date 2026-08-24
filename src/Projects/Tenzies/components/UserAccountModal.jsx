@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   Modal,
@@ -31,14 +32,13 @@ const formItemLayout = {
   },
 };
 
-const UserAccountModal = ({ isUserAccountModalOpen, setIsUserAccountModalOpen }) => {
+const UserAccountModal = ({ isUserAccountModalOpen = false, setIsUserAccountModalOpen = () => {} }) => {
   const { credential } = useSelector((state) => state.auth);
   const { loading, error, userData } = useSelector((state) => state.user);
   const { gameHistory, loading:logLoading } = useSelector((state) => state.userlog);
   const dispatch = useDispatch();
 
   const [editMode, setEditMode] = useState(false);
-  const [data, setData] = useState(userData);
 
   const [form] = Form.useForm();
 
@@ -292,5 +292,10 @@ const UserAccountModal = ({ isUserAccountModalOpen, setIsUserAccountModalOpen })
     </>
   )
 }
+
+UserAccountModal.propTypes = {
+  isUserAccountModalOpen: PropTypes.bool,
+  setIsUserAccountModalOpen: PropTypes.func,
+};
 
 export default UserAccountModal

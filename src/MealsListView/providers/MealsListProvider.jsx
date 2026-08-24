@@ -1,5 +1,5 @@
-import React from 'react'
 import { createContext, useState, useContext } from 'react'
+import PropTypes from 'prop-types'
 
 const MealsListContext = createContext();
 
@@ -13,6 +13,10 @@ const MealsListProvider = ({ children }) => {
             {children}
         </MealsListContext.Provider>
     )
+};
+
+MealsListProvider.propTypes = {
+    children: PropTypes.node
 };
 
 export const useMealsList = () => useContext(MealsListContext);

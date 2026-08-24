@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef, forwardRef } from 'react'
+import { useEffect, useState, useRef, forwardRef } from 'react'
+import PropTypes from 'prop-types'
 import ReactMarkdown from 'react-markdown'
 import './ChiefMistral.css'
 // import { chiefMistralLogo } from '../../assets/ChiefMistralLogo.jpg'
@@ -73,7 +74,11 @@ const InputForm = ({ addIngredient }) => {
     )
 }
 
-const IngredientList = ({ ingredientList }) => {
+InputForm.propTypes = {
+    addIngredient: PropTypes.func
+}
+
+const IngredientList = ({ ingredientList = [] }) => {
     return (
         <section className='m-1 p-3 list-group'>
             <div>
@@ -88,6 +93,10 @@ const IngredientList = ({ ingredientList }) => {
             </div>
         </section>
     )
+}
+
+IngredientList.propTypes = {
+    ingredientList: PropTypes.arrayOf(PropTypes.string)
 }
 
 const GetRecipe = forwardRef((props, ref) => {
@@ -134,17 +143,30 @@ const GetRecipe = forwardRef((props, ref) => {
     )
 })
 
-const MistralRecipe = (props) => {
+GetRecipe.displayName = 'GetRecipe';
+
+GetRecipe.propTypes = {
+    ingredientList: PropTypes.arrayOf(PropTypes.string),
+    setRecipeIdea: PropTypes.func,
+    setRecipeShown: PropTypes.func,
+    showBtn: PropTypes.bool
+}
+
+const MistralRecipe = ({ recipeIdea = '' }) => {
     return (
         <>
             <section className='p-3' aria-live='polite'>
                 <h3>Mistral Recipe Recommentations</h3>
                 <div className='recipe-container'>
-                    <ReactMarkdown>{props.recipeIdea}</ReactMarkdown>
+                    <ReactMarkdown>{recipeIdea}</ReactMarkdown>
                 </div>
             </section>
         </>
     )
+}
+
+MistralRecipe.propTypes = {
+    recipeIdea: PropTypes.string
 }
 
 const MainContent = () => {

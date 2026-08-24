@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { FlightIcon, LocationIcon } from '../../assets/Icons';
 
 import './TravelJournal.css';
@@ -93,14 +93,14 @@ const Header = () => {
     )
 }
 
-const ArticleCards = (props) => {
+const ArticleCards = ({ img = {}, country = '', maplink = '', title = '', description = '' }) => {
   return (
     <div className="card shadow mb-3">
       <div className='row g-0'>
         <div className='col-4 col-md-4 col-sm-4'>
           <img 
-            src={props.img.src} 
-            alt={props.img.alt}
+            src={img?.src} 
+            alt={img?.alt}
             className='img-fluid rounded-start'
             width='100%'
             height='4rem' 
@@ -109,17 +109,28 @@ const ArticleCards = (props) => {
         <div className="col-8 col-md-8 col-sm-8">
           <div className='card-body'>
             <div className='card-title d-flex justify-content-between align-items-center'>
-              <h5 className='align-items-start'><LocationIcon width={25} height={20} />{props.country}</h5>
-              <a href={props.maplink}>View on GMap</a>
+              <h5 className='align-items-start'><LocationIcon width={25} height={20} />{country}</h5>
+              <a href={maplink}>View on GMap</a>
             </div>
-            <h3 className=''>{props.title}</h3>
-            <p className='card-text'>{props.description}</p>
+            <h3 className=''>{title}</h3>
+            <p className='card-text'>{description}</p>
           </div>
         </div>
       </div>
     </div>
   )
 }
+
+ArticleCards.propTypes = {
+  img: PropTypes.shape({
+    src: PropTypes.string,
+    alt: PropTypes.string,
+  }),
+  country: PropTypes.string,
+  maplink: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+};
 
 const TravelJournal = () => {
   return (

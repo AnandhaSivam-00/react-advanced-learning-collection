@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import clsx from 'clsx';
 import Confetti from 'react-confetti-boom';
 import { languages } from './assets/languages';
@@ -14,6 +14,10 @@ import { getRandomWordFromAI } from './assets/wordGenerator';
  * Try to use the useCallBack hook to memoize the function and avoid unnecessary re-renders
  * For API fetching functions, it is better to use the useAsync hook to handle the loading state
  */
+
+const generateRandomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+const extraColors = new Array(20).fill(0).map(generateRandomColor);
+const confettiColors = ['#ff577f', '#ff884b', '#ffd700', '#00fa9a', '#1e90ff', '#ff69b4', ...extraColors];
 
 const MainGamePage = () => {
   // State variables
@@ -160,10 +164,6 @@ const MainGamePage = () => {
       </button>
     );
   });
-
-  const generateRandomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-  const extraColors = new Array(20).fill(0).map(generateRandomColor);
-  const confettiColors = ['#ff577f', '#ff884b', '#ffd700', '#00fa9a', '#1e90ff', '#ff69b4', ...extraColors];
 
   return (
     <div className='d-flex flex-column justify-content-center align-items-center bg-black endgame-main'>
