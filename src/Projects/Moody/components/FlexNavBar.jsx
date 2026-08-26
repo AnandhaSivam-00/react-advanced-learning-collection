@@ -9,7 +9,6 @@ import { motion } from 'framer-motion'
 
 import { AvatarDefaultIcon } from '../../../assets/Icons'
 import { handleLoggedOut } from '../dataFetchFunctions'
-import '../styles.css'
 import Menu from '../components/menu/index'
 
 const NavTab = ({ children = null, setPosition = () => {} }) => {

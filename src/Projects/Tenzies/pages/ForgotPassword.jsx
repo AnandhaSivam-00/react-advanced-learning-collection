@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useLocation, useNavigate, Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { 
   Button, 
@@ -9,7 +9,6 @@ import {
   notification, 
 } from 'antd';
 
-import store from '../redux/app/store';
 import { clearAuthError, forgotPasswordAction } from '../redux/features/authSlice';
 
 import { LoginUserIcon } from '../assets/Icons/Icons';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { connect, useSelector, useDispatch } from 'react-redux'
 
 import { orderPizza } from '../redux/actions/pizzaActions'

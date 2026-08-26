@@ -75,6 +75,8 @@ import {
 
 import PageTransition from './Projects/Moody/components/PageTransition.jsx';
 
+// import './index.css'
+
 const App = () => {
     const dispatch = useDispatch();
     

@@ -1,4 +1,3 @@
-import React from 'react'
 import { useMemeDataContext } from '../MainContentProvider'
 
 const OutputContainer = () => {

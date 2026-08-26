@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Tooltip, ConfigProvider, Modal, notification } from 'antd'
@@ -10,7 +10,6 @@ import {
     LogoutIcon
 } from '../assets/Icons/Icons'
 
-import '../index.css'
 import SettingsModal from './SettingsModal'
 import UserAccountModal from './UserAccountModal'
 
@@ -78,7 +77,7 @@ const FeaturesBar = () => {
         <>
             {contextHolder}
             {modalContextHolder}
-            <div className='mb-5 px-4 d-flex flex-row justify-content-end align-items-center gap-x-3 tenzies-features-bar'>
+            <div className='mb-5 px-4 d-flex flex-row justify-content-end align-items-center tenzies-features-bar'>
                 <ConfigProvider
                     theme={{
                         components: {

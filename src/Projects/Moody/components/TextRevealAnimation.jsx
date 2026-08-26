@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
-import '../styles.css'
-
 const TextRevealAnimation = ({ text = '' }) => {
   return (
     <div className='w-full'>

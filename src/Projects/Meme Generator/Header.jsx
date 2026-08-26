@@ -1,4 +1,3 @@
-import React from 'react'
 import './meme_generator.css'
 
 const Header = () => {

@@ -1,5 +1,3 @@
-import '../styles.css'
-
 const BackgroundGridTransition = () => {
   return (
     <div className='flex h-100vh z-100 overflow-hidden'>

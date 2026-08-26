@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { useLocation, useNavigate, useSearchParams, Link } from 'react-router-dom'
-import { useSelector, useDispatch, Provider } from 'react-redux';
+import { useEffect, useState } from 'react'
+import { useNavigate, useSearchParams, Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
 import { 
   Button, 
   Form, 
@@ -13,12 +13,10 @@ import {
   Alert
 } from 'antd';
 
-import store from '../redux/app/store';
 import { loginUserAction, clearAuthError, signInUpGoogleAction } from '../redux/features/authSlice';
 
 import { LoginUserIcon, PasswordIcon, EmailIcon, GoogleIcon } from '../assets/Icons/Icons';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import '../index.css'
 
 const Login = () => {
   const {loading, isAuthenticated, error} = useSelector((state) => state.auth);
@@ -162,7 +160,7 @@ const Login = () => {
           <Divider plain>or</Divider>
         </Form>
         <div 
-          className='d-flex flex-column justify-content-center align-items-center gap-y-5'
+          className='d-flex flex-column justify-content-center align-items-center'
           style={{ maxWidth: 450 }}
         >
           <Button
@@ -170,6 +168,7 @@ const Login = () => {
             variant="outlined"
             style={{ padding: '1.1rem' }}
             href='/tenzies-game/sign-up'
+            className='text-decoration-none mb-3'
           >
             <EmailIcon width={20} height={20} /> Sign up with personal email
           </Button>

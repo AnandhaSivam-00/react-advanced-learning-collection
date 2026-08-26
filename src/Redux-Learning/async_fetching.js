@@ -1,9 +1,6 @@
-const redux = require('redux');
-const thunk = require('redux-thunk').thunk;
-const axios = require('axios');
-
-const createStore = redux.createStore;
-const applyMiddleware = redux.applyMiddleware;
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import axios from 'axios';
 
 // Constants
 const FETCH_REQUEST = 'FETCH_REQUEST';

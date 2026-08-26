@@ -1,6 +1,4 @@
-const redux = require('redux');
-const createStore = redux.createStore;
-const combineReducers = redux.combineReducers;
+import { createStore, combineReducers } from 'redux';
 
 // Defining the string constant
 const PLACE_ORDER = 'PLACE_ORDER';

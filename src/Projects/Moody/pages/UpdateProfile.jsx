@@ -18,7 +18,6 @@ import {
 import { Modal, message } from 'antd'
 
 import { deleteUserAccountParmanent } from '../dataFetchFunctions'
-import '../styles.css'
 
 const DragAndDropImage = lazy(() => import('../components/DragAndDropImage'))
 import TextRevealAnimation from '../components/TextRevealAnimation'

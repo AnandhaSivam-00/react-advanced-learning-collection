@@ -1,17 +1,17 @@
-import React, { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { 
   motion, 
   AnimatePresence, 
   useScroll,
   useTransform,
   useSpring, 
-  spring
+  // spring
 } from 'framer-motion'
 import './App.module.css'
-import ProgressBar from './components/ProgressBar'
-import Square from './components/Square'
-import DraggableCircle from './components/DraggableCircle'
-import ScrollAnimations from './components/ScrollAnimations'
+// import ProgressBar from './components/ProgressBar'
+// import Square from './components/Square'
+// import DraggableCircle from './components/DraggableCircle'
+// import ScrollAnimations from './components/ScrollAnimations'
 import ParallaxAnimation from './components/ParallaxAnimation'
 import StripeTextAnimation from './components/StripeTextAnimation'
 

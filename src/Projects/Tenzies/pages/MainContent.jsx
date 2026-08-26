@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Provider, useDispatch, useSelector } from 'react-redux';
+import { useState, useRef, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { nanoid } from 'nanoid'
 import Confetti from 'react-confetti-boom';
@@ -10,14 +10,16 @@ import Header from '../components/Header'
 import CountModal from '../components/CountModal';
 import FeaturesBar from '../components/FeaturesBar';
 
-import store from '../redux/app/store';
 import { formatTimeDuration } from '../utils/TimeFormatting';
-import '../index.css'
 
 import { clearUserError, fetchUserSettingData } from '../redux/features/userSlice';
 import { addUserLog, updateUserLogStatistics, fetchUserGameHistory, clearUserLogError } from '../redux/features/userLogSlice';
 import { clearAuthError } from '../redux/features/authSlice';
 // import Timer from './components/Timer';
+
+const generateRandomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+const extraColors = new Array(20).fill(0).map(generateRandomColor);
+const confettiColors = ['#ff577f', '#ff884b', '#ffd700', '#00fa9a', '#1e90ff', '#ff69b4', ...extraColors];
 
 const MainContent = () => {
     const generateNewDice = () => {
@@ -46,7 +48,7 @@ const MainContent = () => {
     const navigate = useNavigate();
 
     const [api, contextHolder] = notification.useNotification();
-    const [messageApi, messageContextHolder] = message.useMessage();
+    const [, messageContextHolder] = message.useMessage();
 
     const [diceNumbers, setDiceNumbers] = useState(() => generateNewDice());
     /**
@@ -101,23 +103,21 @@ const MainContent = () => {
             // Taking gameStartTime and finishedTime, calculate the total time taken to finish the game in 'HH:MM:SS'
             const formattedTime = formatTimeDuration(gameStartTime, finishedTime);
 
-            setGameDuration(elapsedSeconds);
-
             // Focus the button as before
-            buttonRef.current.focus();
+            buttonRef.current?.focus();
 
             dispatch(clearUserLogError());
 
-            if(!settingsData.trail_mode && isAuthenticated && credential) {
+            if(!settingsData?.trail_mode && isAuthenticated && credential) {
                 dispatch(addUserLog({
                     user_id: credential?.uid || credential?.user_id,
-                    show_on_lb: settingsData.show_on_lb,
+                    show_on_lb: settingsData?.show_on_lb,
                     total_roll_clicks: buttonClickCount,
                     time_taken: parseFloat(elapsedSeconds),
                     time_taken_formatted: formattedTime,
                     start_time: new Date(gameStartTime).toLocaleTimeString(),
                     end_time: new Date(finishedTime).toLocaleTimeString(),
-                    dice_final_value: diceNumbers[0].value
+                    dice_final_value: diceNumbers[0]?.value
                 }))
                     .unwrap()
                     .then((addedLogData) => {
@@ -139,6 +139,7 @@ const MainContent = () => {
 
             // Set up the timeout only when isGameWon is true
             const timeoutId = setTimeout(() => {
+                setGameDuration(elapsedSeconds);
                 setShowModal(true);
                 console.log('Game Won!');
             }, 4000);
@@ -150,7 +151,17 @@ const MainContent = () => {
         else {
             setShowModal(false);
         }
-    }, [isGameWon, dispatch, credential])
+    }, [
+        isGameWon,
+        gameStartTime,
+        buttonClickCount,
+        diceNumbers,
+        dispatch,
+        credential,
+        isAuthenticated,
+        settingsData?.show_on_lb,
+        settingsData?.trail_mode
+    ]);
 
     const rollDice = () => {
         if (isGameWon) {
@@ -176,10 +187,6 @@ const MainContent = () => {
         )
         ));
     }
-
-    const generateRandomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-    const extraColors = new Array(20).fill(0).map(generateRandomColor);
-    const confettiColors = ['#ff577f', '#ff884b', '#ffd700', '#00fa9a', '#1e90ff', '#ff69b4', ...extraColors];
 
     // New handler to close the modal when 'X' is clicked
     const handleCloseModal = () => {
