@@ -8,8 +8,6 @@ import Meh from '../assets/mood-3.png';
 import Good from '../assets/mood-4.png';
 import Amazing from '../assets/mood-5.png';
 
-import '../styles.css'
-
 const MOOD_ICONS = {
   Awful,
   Bad,

@@ -2,8 +2,6 @@ import { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { MenuContext } from './Menu'
 
-import '../../styles.css'
-
 const MenuDropdown = ({ children = null }) => {
     const { isOpen } = useContext(MenuContext);
 

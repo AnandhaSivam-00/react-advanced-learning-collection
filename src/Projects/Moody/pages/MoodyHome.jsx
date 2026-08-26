@@ -23,7 +23,6 @@ import MoodBad from '../assets/mood-2.png';
 import MoodMeh from '../assets/mood-3.png';
 import MoodGood from '../assets/mood-4.png';
 import MoodAmazing from '../assets/mood-5.png';
-import '../styles.css'
 
 import TextRevealAnimation from '../components/TextRevealAnimation';
 import PageTransition from '../components/PageTransition';
