@@ -11,7 +11,6 @@ import CountModal from '../components/CountModal';
 import FeaturesBar from '../components/FeaturesBar';
 
 import { formatTimeDuration } from '../utils/TimeFormatting';
-import '../index.css'
 
 import { clearUserError, fetchUserSettingData } from '../redux/features/userSlice';
 import { addUserLog, updateUserLogStatistics, fetchUserGameHistory, clearUserLogError } from '../redux/features/userLogSlice';

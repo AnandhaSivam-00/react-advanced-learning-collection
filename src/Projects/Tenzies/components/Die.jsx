@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import '../index.css';
 
 const Die = ({ isClicked = false, holdDie = () => {}, id, dieNumber }) => {
     const styles = {
