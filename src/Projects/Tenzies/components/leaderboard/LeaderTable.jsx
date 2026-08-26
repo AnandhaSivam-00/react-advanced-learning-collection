@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Table, Spin, notification } from 'antd'
 import { LoadingIcon } from '../../assets/Icons/Icons'
 import { fetchGlobalLeaderboard } from '../../redux/features/leaderboardSlice'
-import { formatFirebaseTimestamp } from '../../utils/DateTimeFormatting'
+// import { formatFirebaseTimestamp } from '../../utils/DateTimeFormatting'
 
 const LeaderTable = () => {
     const { globalLeaderboard, loading, error } = useSelector((state) => state.leaderboard);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const FeedBackForm = () => {
     const [rating, setRating] = useState(10);
