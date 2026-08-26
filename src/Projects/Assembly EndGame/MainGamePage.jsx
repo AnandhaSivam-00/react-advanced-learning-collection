@@ -3,12 +3,12 @@ import clsx from 'clsx';
 import Confetti from 'react-confetti-boom';
 import { languages } from './assets/languages';
 import Header from './components/Header'
-import './index.css';
 import Footer from './components/Footer';
 import Notification from './components/Notification';
 import LanguageChips from './components/LanguageChips';
 import { getRandomWord } from './assets/words';
 import { getRandomWordFromAI } from './assets/wordGenerator';
+import './index.css';
 
 /**
  * Try to use the useCallBack hook to memoize the function and avoid unnecessary re-renders

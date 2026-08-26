@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import Confetti from 'react-confetti-boom';
 import { languages } from './assets/languages';
 import Header from './components/Header'
-import './index.css';
 import Footer from './components/Footer';
 import Notification from './components/Notification';
 import LanguageChips from './components/LanguageChips';

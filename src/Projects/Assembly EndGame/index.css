@@ -1,6 +1,15 @@
+h1, h2 {
+    font-family: 'Calistoga', 'Inter', sans-serif;
+}
+
+p, span {
+    font-family: 'Inter', sans-serif;
+}
+
 .endgame-main {
-    height: 120vh;
+    min-height: 100vh;
     width: 100%;
+    padding-bottom: 2rem;
 }
 
 .notification-container {
@@ -60,7 +69,8 @@ span.missed-letter-style {
     border-bottom: 2px solid #EC5D49;
 }
 
-section > button {
+.endgame-main .keyboard-btn,
+.endgame-main section > button {
     width: 2.5rem;
     height: 2.5rem;
     background-color: #FCBA29 !important;
@@ -83,11 +93,13 @@ section > button {
     }
 }
 
-section > button.correct {
+.endgame-main section > button.correct,
+.endgame-main .keyboard-btn.correct {
     background-color: #10A95B !important;
 }
 
-section > button.wrong {
+.endgame-main section > button.wrong,
+.endgame-main .keyboard-btn.wrong {
     background-color: #EC5D49 !important;
 }
 

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { getFarewellText } from '../assets/farewell_messages';
 import { languages } from '../assets/languages';
-import '../index.css';
 import clsx from 'clsx';
 
 const Notification = ({
