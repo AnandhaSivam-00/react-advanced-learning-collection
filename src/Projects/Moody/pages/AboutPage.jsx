@@ -1,7 +1,6 @@
 import { memo } from 'react'
 import TextRevealAnimation from '../components/TextRevealAnimation'
 import PageTransition from '../components/PageTransition'
-import '../styles.css'
 
 import MoodAwful from '../assets/mood-1.png'
 import MoodBad from '../assets/mood-2.png'

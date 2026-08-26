@@ -12,7 +12,8 @@ import { GoogleIcon } from '../assets/Icons'
 import { auth } from '../../../config/firebaseConfig'
 import TextRevealAnimation from '../components/TextRevealAnimation'
 import LoginBgImage from '../assets/login-bg-image.webp'
-import '../styles.css'
+
+import '../index.css'
 
 const messageAnimationVariants = {
   initial: {

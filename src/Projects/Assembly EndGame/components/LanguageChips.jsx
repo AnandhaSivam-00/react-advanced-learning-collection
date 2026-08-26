@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import '../index.css';
+import { useState, useEffect } from 'react'
 import clsx from 'clsx';
 import { languages } from '../assets/languages'
 

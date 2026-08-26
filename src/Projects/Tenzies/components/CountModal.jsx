@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Button, ConfigProvider, Modal, theme } from 'antd';
+import { useState, useEffect } from 'react'
+import { ConfigProvider, Modal, theme } from 'antd';
 
 const CountModal = (props) => {
     const [countdown, setCountdown] = useState(5);

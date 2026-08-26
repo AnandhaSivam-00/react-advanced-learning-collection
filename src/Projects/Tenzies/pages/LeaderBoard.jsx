@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { ConfigProvider, Tabs } from 'antd';
@@ -7,8 +7,6 @@ import LeaderTable from '../components/leaderboard/LeaderTable';
 import UserLogsTable from '../components/leaderboard/UserLogsTable';
 
 import { clearAuthError } from '../redux/features/authSlice';
-
-import '../index.css'
 
 const LeaderBoard = () => {
     const { isAuthenticated, error, credential } = useSelector((state) => state.auth);

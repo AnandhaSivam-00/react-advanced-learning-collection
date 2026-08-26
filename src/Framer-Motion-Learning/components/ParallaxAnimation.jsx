@@ -1,4 +1,5 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
+import PropTypes from 'prop-types'
 import {
     motion,
     useMotionTemplate,
@@ -75,6 +76,13 @@ const CenterImage = ({ containerRef }) => {
     )
 }
 
+CenterImage.propTypes = {
+    containerRef: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.any })
+    ])
+}
+
 const ParallaxImages = () => {
     return (
         <div className='relative mx-auto z-10 max-w-5xl px-4 pt-[200px]'>
@@ -133,6 +141,14 @@ const ParallaxImage = ({ className, src, alt, start, end }) => {
             alt={alt}
         />
     )
+}
+
+ParallaxImage.propTypes = {
+    className: PropTypes.string,
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    start: PropTypes.number,
+    end: PropTypes.number
 }
 
 export default ParallaxAnimation

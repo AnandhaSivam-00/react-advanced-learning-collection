@@ -1,4 +1,3 @@
-import React from 'react'
 import MealsListProvider from './providers/MealsListProvider'
 import MealsList from './MealsList'
 import Counter from './Counter'

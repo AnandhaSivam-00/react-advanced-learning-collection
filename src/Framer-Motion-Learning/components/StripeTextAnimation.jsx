@@ -1,7 +1,7 @@
-import React from 'react'
-import { motion } from 'framer-motion';
+import PropTypes from 'prop-types'
+import { motion } from 'framer-motion'
 
-const StripeTextAnimation = ({ text }) => {
+const StripeTextAnimation = ({ text = '' }) => {
   return (
     <div className='w-full'>
             {text.split('').map((letter, index) => {
@@ -45,6 +45,10 @@ const StripeTextAnimation = ({ text }) => {
             })}
     </div>
   )
+}
+
+StripeTextAnimation.propTypes = {
+    text: PropTypes.string
 }
 
 export default StripeTextAnimation

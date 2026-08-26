@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Provider, useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Button,
   Checkbox,
@@ -12,10 +12,7 @@ import {
 } from 'antd';
 
 import AgreementModal from '../components/AgreementModal';
-import store from '../redux/app/store';
 import { clearAuthError, registerUserAction } from '../redux/features/authSlice';
-
-import '../index.css';
 
 const { Option } = Select;
 

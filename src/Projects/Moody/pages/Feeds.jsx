@@ -2,7 +2,6 @@ import { lazy, Suspense, memo } from 'react'
 import { Await, useLoaderData } from 'react-router-dom';
 import { Divider } from 'antd'
 
-import '../styles.css'
 const MoodyPostCard = lazy(() => import('../components/MoodyPostCard'));
 import TextRevealAnimation from '../components/TextRevealAnimation';
 import PageTransition from '../components/PageTransition';

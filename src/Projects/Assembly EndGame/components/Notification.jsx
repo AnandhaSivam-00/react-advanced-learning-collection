@@ -1,20 +1,24 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 import { getFarewellText } from '../assets/farewell_messages';
 import { languages } from '../assets/languages';
-import '../index.css';
 import clsx from 'clsx';
 
-const Notification = (props) => {
-  const isGameLost = props.isGameOver && !props.isGameWon;
-  const showFarewell = props.isLatestGuessWrong && !props.isGameOver && !props.isGameWon;
+const Notification = ({
+  isGameOver = false,
+  isGameWon = false,
+  isLatestGuessWrong = false,
+  lostLanguageIndex = 0
+}) => {
+  const isGameLost = isGameOver && !isGameWon;
+  const showFarewell = isLatestGuessWrong && !isGameOver && !isGameWon;
 
   const notificationClass = clsx({
-    'game-won': props.isGameWon,
+    'game-won': isGameWon,
     'game-lost': isGameLost,
     'wrong-selection': showFarewell
   });
 
-  if(!props.isGameWon && !isGameLost && !showFarewell) {
+  if(!isGameWon && !isGameLost && !showFarewell) {
     /**
      * If no notification should be shown (e.g. correct guess in middle of game)
      * we return a visually hidden empty section to maintain layout height or just empty.The original didn't 
@@ -33,7 +37,7 @@ const Notification = (props) => {
         aria-live='polite'
         role='status'
       >
-        {props.isGameWon ? ( 
+        {isGameWon ? ( 
           <>
             <h3 className='p-2 m-0'>You win!</h3>
             <p className='m-0 pb-2'>Well done! 🥳</p>
@@ -44,10 +48,17 @@ const Notification = (props) => {
             <p className='m-0 pb-2'>You lose! Better start learning Assembly 😭</p>
           </>
         ) : showFarewell ? (
-          <p className='p-2 m-0 fst-italic'>{getFarewellText(languages[props.lostLanguageIndex].name)}</p>
+          <p className='p-2 m-0 fst-italic'>{getFarewellText(languages[lostLanguageIndex]?.name || '')}</p>
         ) : null}
       </section>
   )
 }
+
+Notification.propTypes = {
+  isGameOver: PropTypes.bool,
+  isGameWon: PropTypes.bool,
+  isLatestGuessWrong: PropTypes.bool,
+  lostLanguageIndex: PropTypes.number,
+};
 
 export default Notification 

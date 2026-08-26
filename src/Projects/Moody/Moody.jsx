@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 const FlexNavBar = lazy(() => import('./components/FlexNavBar'))
 import { auth } from '../../config/firebaseConfig'
 
-import './styles.css'
+import './index.css'
 
 const Moody = () => {
   const [userData, setUserData] = useState(auth.currentUser ?? null);

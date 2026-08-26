@@ -1,11 +1,11 @@
-import React from 'react';
-import './ReactFacts.css';
+import reactLogo from '../../assets/react.svg';
+import './index.css';
 
 const Header = () => {
   return (
     <header className='row header d-flex align-items-center'>
       <div className='col-6 d-flex align-items-center mt-2 mb-2'>
-        <img src='src/assets/react.svg' alt='react-logo' width='50' height='50' className='me-3' />
+        <img src={reactLogo} alt='react-logo' width='50' height='50' className='me-3' />
         <h2 className='text-light m-0'>ReactFacts</h2>
       </div> 
       <div className='col-6 mt-2 mb-2'>
@@ -46,10 +46,12 @@ const Footer = () => {
 
 const ReactFacts = () => {
   return (
-    <div className='container p-2'>
-      <Header />
-      <MainContent />
-      <Footer />
+    <div className='react-facts-page min-vh-100 p-2'>
+      <div className='container p-2'>
+        <Header />
+        <MainContent />
+        <Footer />
+      </div>
     </div>
   )
 }

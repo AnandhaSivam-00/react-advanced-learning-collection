@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Header = () => {
   return (
     <header className='d-flex flex-column justify-content-center align-items-center p-3'>
