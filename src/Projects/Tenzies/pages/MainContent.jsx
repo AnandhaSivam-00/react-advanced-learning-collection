@@ -17,6 +17,8 @@ import { addUserLog, updateUserLogStatistics, fetchUserGameHistory, clearUserLog
 import { clearAuthError } from '../redux/features/authSlice';
 // import Timer from './components/Timer';
 
+import BgStaryVideo from '../../../assets/stary-galaxy.webm'
+
 const generateRandomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
 const extraColors = new Array(20).fill(0).map(generateRandomColor);
 const confettiColors = ['#ff577f', '#ff884b', '#ffd700', '#00fa9a', '#1e90ff', '#ff69b4', ...extraColors];
@@ -223,13 +225,23 @@ const MainContent = () => {
             </div>
 
             <div
-                className='tenzies-body d-flex justify-content-center align-items-center'
+                className='tenzies-body d-flex justify-content-center align-items-center position-relative overflow-hidden'
                 style={{ filter: showModal ? 'blur(1.5px)' : 'none' }}
             >
-                <main className='d-flex flex-column justify-content-center align-items-center rounded tenzies-main'>
-                    {/* <div className='ms-auto me-3 mt-3'>
-                    <Timer />
-                </div> */}
+
+                <video 
+                    src={BgStaryVideo}
+                    playsInline
+                    loop
+                    autoPlay
+                    disablePictureInPicture={true}
+                    preload
+                    muted
+                    controls={false}
+                    className='position-absolute top-50 start-50 translate-middle'
+                />
+
+                <main className='d-flex flex-column justify-content-center align-items-center rounded tenzies-main z-1'>
                     <FeaturesBar />
                     <Header />
                     <div className='row row-cols-5 gy-4 die-container'>
