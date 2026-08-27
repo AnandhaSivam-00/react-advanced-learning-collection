@@ -1,10 +1,7 @@
 import { db } from '../../../config/firebaseConfig.js'; 
 import { 
-  collection, 
-  addDoc, 
+  collection,  
   getDocs, 
-  doc, 
-  getDoc, 
   where,
   query
 } from "firebase/firestore/lite";
@@ -16,12 +13,12 @@ const vansCollectionRef = collection(
     "Vans"
 );
 
-const userCollectionRef = collection(
-  db,
-  "VansLife",
-  "storage-area",
-  "Users"
-)
+// const userCollectionRef = collection(
+//   db,
+//   "VansLife",
+//   "storage-area",
+//   "Users"
+// )
 
 export const getVans = async () => {
   try {

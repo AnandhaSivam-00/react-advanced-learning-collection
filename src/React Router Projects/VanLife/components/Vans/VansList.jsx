@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import {
     useSearchParams,
     Link,
@@ -10,8 +10,6 @@ import '../../server/server';
 import { getVans } from '../../server/ApiCalls'
 import { requireAuth } from '../../server/utils';
 import Card from '../Card';
-
-import '../../index.css';
 
 export const vansLoader = async ({ request }) => {
     await requireAuth(request);

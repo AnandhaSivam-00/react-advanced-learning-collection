@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import '../index.css'
 import clsx from 'clsx'
 
 const Card = ({ type = '', imageUrl = '', name = '', price = 0 }) => {

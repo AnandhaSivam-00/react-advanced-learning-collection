@@ -1,13 +1,23 @@
-import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
-import '../index.css';
+import { useState, useEffect } from 'react'
+import { NavLink, Link, useNavigate, useLocation } from 'react-router-dom'
 
 import BrandLogo from '../assets/Images/vanlife-logo.png'
 
 const NavBar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    () => Boolean(localStorage.getItem('isLoggedIn'))
+  );
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsLoggedIn(Boolean(localStorage.getItem('isLoggedIn')));
+  }, [location]);
+
   const fakeLogout = () => {
-    localStorage.clear();
-    window.location.href = '/';
+    localStorage.removeItem('isLoggedIn');
+    setIsLoggedIn(false);
+    navigate('/vanslife/login');
   }
 
   return (
@@ -19,7 +29,7 @@ const NavBar = () => {
               <img 
                 src={BrandLogo} 
                 alt="brand-logo" 
-                height="24"
+                height="44"
                 width="100%" 
               />
             </Link>
@@ -43,7 +53,16 @@ const NavBar = () => {
             >
               Vans
             </NavLink>
-            <button onClick={fakeLogout} className='btn btn-outline-light mx-auto'>Logout</button>
+            {isLoggedIn ? (
+              <button onClick={fakeLogout} className='btn btn-outline-light mx-auto'>Logout</button>
+            ) : (
+              <NavLink 
+                to="login" 
+                className={({ isActive }) => isActive ? 'nav-active mx-auto' : 'mx-auto'}
+              >
+                Login
+              </NavLink>
+            )}
           </div>
         </div>
       </nav>
