@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react'; 
+import { useEffect } from 'react'; 
 import { 
   useLoaderData, 
   useActionData, 
@@ -8,42 +7,41 @@ import {
   useNavigate,  // Add this import
   useSearchParams 
 } from 'react-router-dom';
-import '../index.css';
 
 import { loginAuth } from '../server/ApiCalls';
 
 
-export const loginLoader = async ({ request }) => {
-  const url = new URL(request.url);
-  return {
-    message: url.searchParams.get('message'),
-    redirectTo: url.searchParams.get('redirectTo') || '/vanslife/host'
-  }
-}
+// export const loginLoader = async ({ request }) => {
+//   const url = new URL(request.url);
+//   return {
+//     message: url.searchParams.get('message'),
+//     redirectTo: url.searchParams.get('redirectTo') || '/vanslife/host'
+//   }
+// }
 
-export const loginAction = async ({ request }) => {
-  const userCrenditals = await request.formData();
-  const pathName = new URL(request.url).searchParams.get('redirectTo') || '/vanslife/host';
+// export const loginAction = async ({ request }) => {
+//   const userCrenditals = await request.formData();
+//   const pathName = new URL(request.url).searchParams.get('redirectTo') || '/vanslife/host';
 
-  const email = userCrenditals.get('email');
-  const password = userCrenditals.get('password');
+//   const email = userCrenditals.get('email');
+//   const password = userCrenditals.get('password');
 
-  try {
-    const userData = await loginAuth({ email, password });
-    localStorage.setItem("isLoggedIn", true); 
-    return {
-      success: true,
-      redirectTo: pathName
-    }
-  }
-  catch(error) {
-    console.log(error.message);
-    return {
-      success: false,
-      error: error.message
-    }
-  }
-}
+//   try {
+//     const userData = await loginAuth({ email, password });
+//     localStorage.setItem("isLoggedIn", true); 
+//     return {
+//       success: true,
+//       redirectTo: pathName
+//     }
+//   }
+//   catch(error) {
+//     console.log(error.message);
+//     return {
+//       success: false,
+//       error: error.message
+//     }
+//   }
+// }
 
 const Login = () => {
   const loaderData = useLoaderData();
@@ -99,7 +97,7 @@ const Login = () => {
           <div className='d-flex justify-content-center'>
             <button
               type='submit'
-              className='btn btn-primary px-5'
+              className='btn btn-lg rounded px-5 text-white'
               disabled={navigation.state === 'submitting'}
             >
               { navigation.state === 'submitting' ? 'Logging in...' : 'Login' }

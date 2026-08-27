@@ -1,13 +1,12 @@
-import React from 'react'
 import { Outlet } from 'react-router-dom'
 import NavBar from '../NavBar';
 import Footer from '../Footer';
 
-import '../../index.css';
+import '../../index.css'
 
 const MainLayout = () => {
   return (
-    <>
+    <div className='vanlife-app'>
       <div className='main-layout'>
         <NavBar />
         <main className='content'>
@@ -15,7 +14,7 @@ const MainLayout = () => {
         </main>
         <Footer />
       </div>
-    </>
+    </div>
   )
 }
 
