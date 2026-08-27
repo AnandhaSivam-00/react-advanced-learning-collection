@@ -23,12 +23,26 @@ createServer({
         // Because the actual API is not part of the Mirage server, we need to 
         // tell Mirage to let these requests through
         this.passthrough((request) => {
-            // Check if the request is going to Hugging Face
-            return request.url.includes("huggingface.co") || 
-                   request.url.includes("hf.space") ||
-                   request.url.includes("firebase") || 
-                   request.url.includes("googleapis.com")
+            // Check external hosts safely by parsing URL and validating hostname
+            try {
+                const { hostname } = new URL(request.url)
+                const host = hostname.toLowerCase()
+                const allowedHosts = [
+                    "huggingface.co",
+                    "hf.space",
+                    "firebaseio.com",
+                    "firebase.com",
+                    "firebaseapp.com",
+                    "googleapis.com"
+                ]
 
+                return allowedHosts.some(
+                    (allowedHost) =>
+                        host === allowedHost || host.endsWith(`.${allowedHost}`)
+                )
+            } catch (e) {
+                return false
+            }
         })
         
         this.passthrough("https://*.googleapis.com/**")
