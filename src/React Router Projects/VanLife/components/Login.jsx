@@ -11,37 +11,37 @@ import {
 import { loginAuth } from '../server/ApiCalls';
 
 
-// export const loginLoader = async ({ request }) => {
-//   const url = new URL(request.url);
-//   return {
-//     message: url.searchParams.get('message'),
-//     redirectTo: url.searchParams.get('redirectTo') || '/vanslife/host'
-//   }
-// }
+export const loginLoader = async ({ request }) => {
+  const url = new URL(request.url);
+  return {
+    message: url.searchParams.get('message'),
+    redirectTo: url.searchParams.get('redirectTo') || '/vanslife/host'
+  }
+}
 
-// export const loginAction = async ({ request }) => {
-//   const userCrenditals = await request.formData();
-//   const pathName = new URL(request.url).searchParams.get('redirectTo') || '/vanslife/host';
+export const loginAction = async ({ request }) => {
+  const userCrenditals = await request.formData();
+  const pathName = new URL(request.url).searchParams.get('redirectTo') || '/vanslife/host';
 
-//   const email = userCrenditals.get('email');
-//   const password = userCrenditals.get('password');
+  const email = userCrenditals.get('email');
+  const password = userCrenditals.get('password');
 
-//   try {
-//     const userData = await loginAuth({ email, password });
-//     localStorage.setItem("isLoggedIn", true); 
-//     return {
-//       success: true,
-//       redirectTo: pathName
-//     }
-//   }
-//   catch(error) {
-//     console.log(error.message);
-//     return {
-//       success: false,
-//       error: error.message
-//     }
-//   }
-// }
+  try {
+    const userData = await loginAuth({ email, password });
+    localStorage.setItem("isLoggedIn", true); 
+    return {
+      success: true,
+      redirectTo: pathName
+    }
+  }
+  catch(error) {
+    console.log(error.message);
+    return {
+      success: false,
+      error: error.message
+    }
+  }
+}
 
 const Login = () => {
   const loaderData = useLoaderData();
