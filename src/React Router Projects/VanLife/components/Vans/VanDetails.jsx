@@ -1,12 +1,10 @@
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import { 
     useLocation, 
     Link, 
     useLoaderData, 
     Await
 } from 'react-router-dom'
-
-import '../../index.css';
 import '../../server/server';
 import { getVan } from '../../server/ApiCalls';
 import { requireAuth } from '../../server/utils';

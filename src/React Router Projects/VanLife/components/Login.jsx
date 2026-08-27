@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react'; 
+import { useEffect } from 'react'; 
 import { 
   useLoaderData, 
   useActionData, 
@@ -8,7 +7,6 @@ import {
   useNavigate,  // Add this import
   useSearchParams 
 } from 'react-router-dom';
-import '../index.css';
 
 import { loginAuth } from '../server/ApiCalls';
 
@@ -99,7 +97,7 @@ const Login = () => {
           <div className='d-flex justify-content-center'>
             <button
               type='submit'
-              className='btn btn-primary px-5'
+              className='btn btn-lg rounded px-5 text-white'
               disabled={navigation.state === 'submitting'}
             >
               { navigation.state === 'submitting' ? 'Logging in...' : 'Login' }

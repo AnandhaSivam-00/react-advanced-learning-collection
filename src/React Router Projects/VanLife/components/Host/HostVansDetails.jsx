@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import {
   NavLink,
   Link,
@@ -7,7 +7,6 @@ import {
   useLoaderData,
   Await
 } from 'react-router-dom';
-import '../../index.css'
 
 import { getHostVan } from '../../server/ApiCalls';
 import { requireAuth } from '../../server/utils';
