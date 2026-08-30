@@ -74,6 +74,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      deployments: write
 
     if: |
       github.event_name == 'pull_request' &&
@@ -144,7 +145,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Write a summary of the build
+      - name: Write a summary of the build inside the Actions and comment on the PR
         run: |
           get_emoji() {
             case "$1" in
