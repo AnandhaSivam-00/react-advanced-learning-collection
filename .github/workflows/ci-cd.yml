@@ -1,4 +1,6 @@
-name: CI/CD - PR Checks, Preview and Production Deployments
+# CI/CD - PR Checks, Preview and Production Deployments
+
+name: Run Tasks
 
 on:
   pull_request:
